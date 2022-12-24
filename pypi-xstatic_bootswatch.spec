@@ -4,7 +4,7 @@
 #
 Name     : pypi-xstatic_bootswatch
 Version  : 3.3.7.0
-Release  : 3
+Release  : 4
 URL      : https://files.pythonhosted.org/packages/3f/da/db1cce6cb51225fda111c8e078983f9abebfbf8572c328036023bd4232b8/XStatic-bootswatch-3.3.7.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/3f/da/db1cce6cb51225fda111c8e078983f9abebfbf8572c328036023bd4232b8/XStatic-bootswatch-3.3.7.0.tar.gz
 Summary  : bootswatch 3.3.7 (XStatic packaging standard)
@@ -53,6 +53,7 @@ python3 components for the pypi-xstatic_bootswatch package.
 cd %{_builddir}/XStatic-bootswatch-3.3.7.0
 pushd ..
 cp -a XStatic-bootswatch-3.3.7.0 buildavx2
+cp -a XStatic-bootswatch-3.3.7.0 buildavx512
 popd
 
 %build
@@ -60,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1669969654
+export SOURCE_DATE_EPOCH=1671854746
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -73,8 +74,8 @@ export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx"
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
@@ -89,7 +90,7 @@ echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
 export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
