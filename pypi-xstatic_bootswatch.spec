@@ -4,7 +4,7 @@
 #
 Name     : pypi-xstatic_bootswatch
 Version  : 3.3.7.0
-Release  : 4
+Release  : 5
 URL      : https://files.pythonhosted.org/packages/3f/da/db1cce6cb51225fda111c8e078983f9abebfbf8572c328036023bd4232b8/XStatic-bootswatch-3.3.7.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/3f/da/db1cce6cb51225fda111c8e078983f9abebfbf8572c328036023bd4232b8/XStatic-bootswatch-3.3.7.0.tar.gz
 Summary  : bootswatch 3.3.7 (XStatic packaging standard)
@@ -61,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1671854746
+export SOURCE_DATE_EPOCH=1672120235
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
